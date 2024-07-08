@@ -7,4 +7,4 @@ foodRouter.get('/food', getfood);
 
 foodRouter.post('/food', postFood);
 
-foodRouter.patch('/food', patchFood)
+foodRouter.patch('/food/:id', patchFood);

@@ -12,8 +12,10 @@ export const getfood = async (req, res, next) => {
 
 export const postFood = async (req, res, next) => {
     try {
-        const newfood =await foodModel.create(req.body)
-        res.json(newfood)
+        const newfood =await foodModel.create({
+            ...req.body
+        });
+        res.status(201).json(newfood)
     } catch (error) {
         next (error)
         
@@ -23,7 +25,7 @@ export const postFood = async (req, res, next) => {
 export const patchFood = async (req, res, next) => {
     try {
         const update = await foodModel.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        req.status(201).json(patchFood)
+        res.status(201).json(update)
     } catch (error) {
         next(error)
         

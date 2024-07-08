@@ -9,7 +9,7 @@ await mongoose.connect(process.env.Mongo_Url);
 //create an app
 const app = express();
 //middleware
-app.use(express());
+app.use(express.json());
 
 //use route
 app.use(foodRouter)
